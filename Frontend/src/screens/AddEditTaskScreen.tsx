@@ -51,7 +51,7 @@ const AddEditTaskScreen = ({ route, navigation }: { route: any, navigation: any 
                 onChangeText={setDescription} 
                 placeholder="Task Description"
             />
-            {/* Simple Status Toggle for now, or dropdown */}
+        
              <Input 
                 label="Status (pending/completed)" 
                 value={status} 

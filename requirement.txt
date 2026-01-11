@@ -1,0 +1,77 @@
+React Native + PHP Technical Assignment
+
+ frontend (React Native + Redux + Redux-Saga) and backend (Core PHP + MySQL).
+
+Project Title: Simple Task Manager App
+Tech Stack: React Native, Redux, Redux-Saga, Core PHP, MySQL
+
+Frontend (React Native + Redux + Redux-Saga)
+Build a mobile app with the following features:
+
+1. Login Screen
+->Email & Password fields
+->Input validation
+->Trigger login API via Redux-Saga
+
+2. Task List Screen
+->Fetch tasks via Redux-Saga
+->Display: Title, Description, Status
+->Pull-to-refresh
+->Show loading / error states from Redux store
+
+3. Add/Edit Task Screen
+->Fields: Title, Description, Status
+->Submit (Create/Update) via Saga
+->Show success & error feedback
+
+Technical Expectations
+React Native functional components + hooks
+Redux for global state management (token, task list, UI states)
+Redux-Saga for:
+->Handling all API calls
+->Managing side effects
+->Token storage & retrieval
+->Proper folder structure (actions, reducers, sagas, services, components)
+->Axios for APIs
+->React Navigation
+->AsyncStorage for token persistence
+->Clean reusable UI components
+->Good UX practices (alerts, loaders, validations)
+
+
+
+Backend (Core PHP + MySQL)
+Create a simple REST API in Core PHP with the following:
+
+API Endpoints
+->POST /login
+->GET /tasks
+->POST /tasks 
+->PUT /tasks/{id}
+
+Database Requirements
+=>>users
+->id, name, email, password (hashed)
+
+=>tasks 
+->id, user_id, title, description, status, created_at
+
+Backend Expectations
+->Core PHP (no frameworks)
+->PDO for database connection
+->Token-based authentication (JWT or custom)
+->JSON responses
+->Input validation
+->Proper error handling
+
+Submission Requirements
+README containing:
+->Setup instructions
+->API endpoints
+->Database schema
+->Postman collection
+
+A short note explaining:
+->What you would improve with more time
+
+

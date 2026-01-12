@@ -68,15 +68,18 @@ INSERT INTO users (name, email, password) VALUES ('Test User', 'test@example.com
 
 With more time, I would focus on the following structural improvements:
 
-### 1. Unified Architecture (Monorepo)
-*   Restructure the project into a Monorepo to enable code sharing between Web and Mobile.
-*   Centralize shared logic, constants, and TypeScript interfaces.
+### 1. Pagination for task list
 
-### 2. Standardization & Type Safety
-*   Implement backend-driven type generation to ensure synchronization between API and Client.
+### 2. Refresh token mechanism
 
-### 3. Refactoring
-*   Break down large components into smaller, reusable units.
-*   Centralize services (like Notifications) to improve maintainability.
+### 3. Unit tests (Jest & PHPUnit)
+
+### 4. Break down large components into smaller, reusable units.
+
+### 5. Better error logging
+
+### 6. Role-based access control
+
+### 7. Offline task caching
 
 

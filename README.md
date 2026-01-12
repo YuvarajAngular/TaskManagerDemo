@@ -74,7 +74,6 @@ With more time, I would focus on the following structural improvements:
 
 ### 2. Standardization & Type Safety
 *   Implement backend-driven type generation to ensure synchronization between API and Client.
-*   Rename `Frontend` to `Mobile` for clarity.
 
 ### 3. Refactoring
 *   Break down large components into smaller, reusable units.

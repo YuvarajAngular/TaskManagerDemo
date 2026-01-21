@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 require_once __DIR__ . '/../utils/DotEnv.php';
+require_once __DIR__ . '/../utils/JWT.php';
 require_once __DIR__ . '/../app/Config/Database.php';
 require_once __DIR__ . '/../app/Controllers/AuthController.php';
 require_once __DIR__ . '/../app/Controllers/TaskController.php';
@@ -18,6 +19,9 @@ require_once __DIR__ . '/../app/Controllers/TaskController.php';
 // Load Env
 $env = new DotEnv(__DIR__ . '/../.env');
 $env->load();
+
+// Initialize JWT secret for token encoding/decoding
+JWT::setSecret(getenv('JWT_SECRET'));
 
 // Connect DB
 $database = new Database();

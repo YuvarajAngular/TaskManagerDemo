@@ -9,13 +9,14 @@ class Task {
     public $description;
     public $status;
     public $created_at;
+    public $deleted;
 
     public function __construct($db) {
         $this->conn = $db;
     }
 
     public function read() {
-        $query = "SELECT * FROM " . $this->table_name . " WHERE user_id = ? ORDER BY created_at DESC";
+        $query = "SELECT * FROM " . $this->table_name . " WHERE user_id = ? AND deleted = 0 ORDER BY created_at DESC";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $this->user_id);
         $stmt->execute();
@@ -42,7 +43,7 @@ class Task {
     }
 
     public function update() {
-        $query = "UPDATE " . $this->table_name . " SET title = :title, description = :description, status = :status WHERE id = :id AND user_id = :user_id";
+        $query = "UPDATE " . $this->table_name . " SET title = :title, description = :description, status = :status WHERE id = :id AND user_id = :user_id AND deleted = 0";
         $stmt = $this->conn->prepare($query);
 
         $this->title = htmlspecialchars(strip_tags($this->title));
@@ -63,7 +64,7 @@ class Task {
     }
 
     public function delete() {
-        $query = "DELETE FROM " . $this->table_name . " WHERE id = :id AND user_id = :user_id";
+        $query = "UPDATE " . $this->table_name . " SET deleted = 1 WHERE id = :id AND user_id = :user_id AND deleted = 0";
         $stmt = $this->conn->prepare($query);
 
         $this->id = htmlspecialchars(strip_tags($this->id));
@@ -72,7 +73,7 @@ class Task {
         $stmt->bindParam(":id", $this->id);
         $stmt->bindParam(":user_id", $this->user_id);
 
-        if($stmt->execute()) {
+        if($stmt->execute() && $stmt->rowCount() > 0) {
             return true;
         }
         return false;
